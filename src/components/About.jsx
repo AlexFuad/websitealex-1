@@ -58,7 +58,7 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-white dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
@@ -67,10 +67,10 @@ export default function About() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <motion.h2 variants={itemVariants} className="text-4xl font-bold text-gray-900 mb-4">
+          <motion.h2 variants={itemVariants} className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">
             About Me
           </motion.h2>
-          <motion.p variants={itemVariants} className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <motion.p variants={itemVariants} className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             I'm a passionate full stack developer with expertise in modern web technologies
             and a love for creating exceptional user experiences.
           </motion.p>
@@ -88,13 +88,13 @@ export default function About() {
               My Story
             </motion.h3>
             
-            <motion.p variants={itemVariants} className="text-gray-600 mb-4">
+            <motion.p variants={itemVariants} className="text-slate-600 dark:text-slate-400 mb-4">
               Hello! I'm Alex Fuad, a full stack developer with a passion for creating beautiful,
               functional, and user-centered digital experiences. I'm always looking for new and
               innovative ways to bring my clients' visions to life.
             </motion.p>
             
-            <motion.p variants={itemVariants} className="text-gray-600 mb-6">
+            <motion.p variants={itemVariants} className="text-slate-600 dark:text-slate-400 mb-6">
               With over 4 years of experience in web development, I've worked on a wide range
               of projects from small business websites to large-scale enterprise applications.
               My approach combines technical expertise with creative problem-solving to deliver
@@ -102,21 +102,21 @@ export default function About() {
             </motion.p>
 
             <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4 mb-8">
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-blue-900 mb-2">Frontend</h4>
-                <p className="text-sm text-blue-700">React, Next.js, TypeScript, Tailwind CSS</p>
+              <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Frontend</h4>
+                <p className="text-sm text-blue-700 dark:text-blue-300">React, Next.js, TypeScript, Tailwind CSS</p>
               </div>
-              <div className="bg-purple-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-purple-900 mb-2">Backend</h4>
-                <p className="text-sm text-purple-700">Node.js, Express, MongoDB, PostgreSQL</p>
+              <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                <h4 className="font-semibold text-purple-900 dark:text-purple-100 mb-2">Backend</h4>
+                <p className="text-sm text-purple-700 dark:text-purple-300">Node.js, Express, MongoDB, PostgreSQL</p>
               </div>
-              <div className="bg-green-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-green-900 mb-2">Tools</h4>
-                <p className="text-sm text-green-700">Git, Docker, AWS, Vercel</p>
+              <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                <h4 className="font-semibold text-green-900 dark:text-green-100 mb-2">Tools</h4>
+                <p className="text-sm text-green-700 dark:text-green-300">Git, Docker, AWS, Vercel</p>
               </div>
-              <div className="bg-orange-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-orange-900 mb-2">Design</h4>
-                <p className="text-sm text-orange-700">Figma, Adobe XD, Responsive Design</p>
+              <div className="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+                <h4 className="font-semibold text-orange-900 dark:text-orange-100 mb-2">Design</h4>
+                <p className="text-sm text-orange-700 dark:text-orange-300">Figma, Adobe XD, Responsive Design</p>
               </div>
             </motion.div>
           </motion.div>
@@ -134,7 +134,7 @@ export default function About() {
 
             {/* Skills */}
             <motion.div variants={itemVariants} className="mb-8">
-              <h4 className="text-lg font-semibold text-gray-800 mb-4">Technical Skills</h4>
+              <h4 className="text-lg font-semibold text-slate-800 dark:text-slate-200 mb-4">Technical Skills</h4>
               <div className="space-y-4">
                 {skills.map((skill) => {
                   const Icon = skill.icon
@@ -144,15 +144,15 @@ export default function About() {
                       whileHover={{ scale: 1.02 }}
                       className="flex items-center space-x-4"
                     >
-                      <div className="p-2 bg-blue-100 rounded-lg">
-                        <Icon className="w-5 h-5 text-blue-600" />
+                      <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                        <Icon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                       </div>
                       <div className="flex-1">
                         <div className="flex justify-between items-center mb-1">
-                          <span className="text-sm font-medium text-gray-700">{skill.name}</span>
-                          <span className="text-sm text-gray-500">{skill.level}%</span>
+                          <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{skill.name}</span>
+                          <span className="text-sm text-slate-500 dark:text-slate-400">{skill.level}%</span>
                         </div>
-                        <div className="w-full bg-gray-200 rounded-full h-2">
+                        <div className="w-full bg-slate-200 dark:bg-slate-600 rounded-full h-2">
                           <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: `${skill.level}%` }}
@@ -170,7 +170,7 @@ export default function About() {
 
             {/* Experience */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-lg font-semibold text-gray-800 mb-4">Work Experience</h4>
+              <h4 className="text-lg font-semibold text-slate-800 dark:text-slate-200 mb-4">Work Experience</h4>
               <div className="space-y-4">
                 {experiences.map((exp, index) => (
                   <motion.div
@@ -178,9 +178,9 @@ export default function About() {
                     whileHover={{ scale: 1.02, x: 5 }}
                     className="border-l-4 border-blue-500 pl-4 py-2"
                   >
-                    <h5 className="font-semibold text-gray-900">{exp.title}</h5>
-                    <p className="text-sm text-blue-600">{exp.company} · {exp.period}</p>
-                    <p className="text-sm text-gray-600 mt-1">{exp.description}</p>
+                    <h5 className="font-semibold text-slate-900 dark:text-slate-100">{exp.title}</h5>
+                    <p className="text-sm text-blue-600 dark:text-blue-400">{exp.company} · {exp.period}</p>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{exp.description}</p>
                   </motion.div>
                 ))}
               </div>

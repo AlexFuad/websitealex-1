@@ -71,7 +71,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-slate-900 dark:bg-slate-950 text-white">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <motion.div
@@ -89,7 +89,7 @@ export default function Footer() {
               </div>
               <span className="font-bold text-xl">Alex Fuad</span>
             </div>
-            <p className="text-gray-300 mb-6">
+            <p className="text-slate-300 dark:text-slate-400 mb-6">
               Full stack developer passionate about creating beautiful, functional, and user-centered digital experiences.
             </p>
             
@@ -105,7 +105,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1, y: -3 }}
                     whileTap={{ scale: 0.9 }}
-                    className="p-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-200"
+                    className="p-2 bg-slate-800 dark:bg-slate-700 rounded-lg hover:bg-slate-700 dark:hover:bg-slate-600 transition-colors duration-200"
                     aria-label={social.label}
                   >
                     <Icon className="w-5 h-5" />
@@ -125,7 +125,7 @@ export default function Footer() {
                     <motion.a
                       whileHover={{ scale: 1.05, x: 5 }}
                       href={link.href}
-                      className="text-gray-300 hover:text-white transition-colors duration-200"
+                      className="text-slate-300 dark:text-slate-400 hover:text-white transition-colors duration-200"
                     >
                       {link.name}
                     </motion.a>
@@ -142,18 +142,18 @@ export default function Footer() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mt-12 pt-8 border-t border-gray-800"
+          className="mt-12 pt-8 border-t border-slate-800 dark:border-slate-700"
         >
           <motion.div variants={itemVariants} className="text-center">
             <h3 className="text-2xl font-semibold mb-4">Stay Updated</h3>
-            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+            <p className="text-slate-300 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
               Subscribe to my newsletter to get updates on my latest projects, articles, and tech insights.
             </p>
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400"
+                className="flex-1 px-4 py-3 bg-slate-800 dark:bg-slate-700 border border-slate-700 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-slate-400 dark:placeholder-slate-500"
               />
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -168,14 +168,14 @@ export default function Footer() {
       </div>
 
       {/* Bottom Footer */}
-      <div className="border-t border-gray-800">
+      <div className="border-t border-slate-800 dark:border-slate-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center space-x-2 text-gray-400 text-sm"
+              className="flex items-center space-x-2 text-slate-400 dark:text-slate-500 text-sm"
             >
               <span>© {currentYear} Alex Fuad. All rights reserved.</span>
               <Heart className="w-4 h-4 text-red-500" />
@@ -186,7 +186,7 @@ export default function Footer() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center space-x-6 text-sm text-gray-400"
+              className="flex items-center space-x-6 text-sm text-slate-400 dark:text-slate-500"
             >
               <a href="#" className="hover:text-white transition-colors duration-200">
                 Privacy Policy

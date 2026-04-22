@@ -36,11 +36,11 @@ export default function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-700" />
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" />
-        <div className="absolute top-40 right-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style={{ animationDelay: '4s' }} />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 dark:bg-blue-900/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" />
+        <div className="absolute top-40 right-10 w-72 h-72 bg-purple-200 dark:bg-purple-900/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style={{ animationDelay: '2s' }} />
+        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-200 dark:bg-pink-900/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style={{ animationDelay: '4s' }} />
       </div>
 
       {/* Content */}
@@ -51,14 +51,14 @@ export default function Hero() {
         className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
       >
         <motion.div variants={itemVariants} className="mb-8">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-slate-100 mb-4">
             Hi, I'm{' '}
             <span className="gradient-text">Alex Fuad</span>
           </h1>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-700 mb-6">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-700 dark:text-slate-300 mb-6">
             Full Stack Developer
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+          <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8">
             Passionate about creating beautiful, functional, and user-centered digital experiences.
             I turn ideas into reality through clean code and thoughtful design.
           </p>
@@ -77,7 +77,7 @@ export default function Hero() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 bg-white text-gray-800 font-semibold rounded-lg shadow-lg hover:shadow-xl border border-gray-200 transition-all duration-300 flex items-center justify-center gap-2"
+            className="px-8 py-3 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-semibold rounded-lg shadow-lg hover:shadow-xl border border-slate-200 dark:border-slate-600 transition-all duration-300 flex items-center justify-center gap-2"
           >
             <Download className="w-5 h-5" />
             Download CV
@@ -95,10 +95,10 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -5 }}
                 whileTap={{ scale: 0.9 }}
-                className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="p-3 bg-white dark:bg-slate-800 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300"
                 aria-label={link.label}
               >
-                <Icon className="w-6 h-6 text-gray-700" />
+                <Icon className="w-6 h-6 text-slate-700 dark:text-slate-300" />
               </motion.a>
             )
           })}
@@ -115,7 +115,7 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="flex flex-col items-center text-gray-600"
+          className="flex flex-col items-center text-slate-600 dark:text-slate-400"
         >
           <span className="text-sm mb-2">Scroll Down</span>
           <ArrowDown className="w-5 h-5" />

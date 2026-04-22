@@ -23,17 +23,17 @@ export default function WhatsAppFloating() {
     >
       <div className="relative">
         {/* Glow effect */}
-        <div className="absolute inset-0 bg-green-400 rounded-full blur-lg opacity-75 animate-pulse"></div>
+        <div className="absolute inset-0 bg-green-400 dark:bg-green-500 rounded-full blur-lg opacity-75 animate-pulse"></div>
         
         {/* WhatsApp button */}
-        <div className="relative bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300">
+        <div className="relative bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300">
           <MessageCircle className="w-6 h-6" />
         </div>
         
         {/* Tooltip */}
-        <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-gray-800 text-white text-sm rounded-lg whitespace-nowrap opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+        <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-slate-800 dark:bg-slate-700 text-white text-sm rounded-lg whitespace-nowrap opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none">
           Chat on WhatsApp
-          <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
+          <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
         </div>
       </div>
     </motion.div>

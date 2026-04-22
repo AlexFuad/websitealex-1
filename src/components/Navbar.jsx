@@ -58,7 +58,7 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700 shadow-lg'
+            ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-700 shadow-lg'
             : 'bg-transparent'
         }`}
       >
@@ -73,7 +73,7 @@ export default function Navbar() {
             <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">A</span>
             </div>
-            <span className="font-bold text-xl text-gray-800 dark:text-gray-200">Alex Fuad</span>
+            <span className="font-bold text-xl text-slate-800 dark:text-slate-200">Alex Fuad</span>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -86,8 +86,8 @@ export default function Navbar() {
                 onClick={() => scrollToSection(item.href)}
                 className={`text-sm font-medium transition-colors duration-200 ${
                   scrolled
-                    ? 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
-                    : 'text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400'
+                    ? 'text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400'
+                    : 'text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400'
                 }`}
               >
                 {item.name}
@@ -101,8 +101,8 @@ export default function Navbar() {
               onClick={toggleTheme}
               className={`p-2 rounded-lg transition-colors duration-200 ${
                 scrolled
-                  ? 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
-                  : 'bg-white/20 dark:bg-gray-800/20 text-gray-800 dark:text-gray-200 hover:bg-white/30 dark:hover:bg-gray-800/30'
+                  ? 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                  : 'bg-white/20 dark:bg-slate-800/20 text-slate-800 dark:text-slate-200 hover:bg-white/30 dark:hover:bg-slate-800/30'
               }`}
               title={theme === 'dark' ? t('lightMode') : t('darkMode')}
             >
@@ -116,8 +116,8 @@ export default function Navbar() {
               onClick={toggleLanguage}
               className={`p-2 rounded-lg transition-colors duration-200 ${
                 scrolled
-                  ? 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
-                  : 'bg-white/20 dark:bg-gray-800/20 text-gray-800 dark:text-gray-200 hover:bg-white/30 dark:hover:bg-gray-800/30'
+                  ? 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                  : 'bg-white/20 dark:bg-slate-800/20 text-slate-800 dark:text-slate-200 hover:bg-white/30 dark:hover:bg-slate-800/30'
               }`}
               title={language === 'en' ? 'Switch to Bahasa' : 'Switch to English'}
             >
@@ -130,11 +130,10 @@ export default function Navbar() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleAdminLogout}
-                className="flex items-center space-x-1 px-3 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors duration-200"
+                className="p-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors duration-200"
                 title={t('logout')}
               >
-                <Shield className="w-4 h-4" />
-                <LogOut className="w-4 h-4" />
+                <Shield className="w-5 h-5" />
               </motion.button>
             ) : (
               <motion.button
@@ -143,8 +142,8 @@ export default function Navbar() {
                 onClick={() => setShowAdminLogin(true)}
                 className={`p-2 rounded-lg transition-colors duration-200 ${
                   scrolled
-                    ? 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
-                    : 'bg-white/20 dark:bg-gray-800/20 text-gray-800 dark:text-gray-200 hover:bg-white/30 dark:hover:bg-gray-800/30'
+                    ? 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                    : 'bg-white/20 dark:bg-slate-800/20 text-slate-800 dark:text-slate-200 hover:bg-white/30 dark:hover:bg-slate-800/30'
                 }`}
                 title={t('adminLogin')}
               >
@@ -162,8 +161,8 @@ export default function Navbar() {
               onClick={toggleTheme}
               className={`p-2 rounded-lg transition-colors duration-200 ${
                 scrolled
-                  ? 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
-                  : 'bg-white/20 dark:bg-gray-800/20 text-gray-800 dark:text-gray-200 hover:bg-white/30 dark:hover:bg-gray-800/30'
+                  ? 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                  : 'bg-white/20 dark:bg-slate-800/20 text-slate-800 dark:text-slate-200 hover:bg-white/30 dark:hover:bg-slate-800/30'
               }`}
               title={theme === 'dark' ? t('lightMode') : t('darkMode')}
             >
@@ -177,8 +176,8 @@ export default function Navbar() {
               onClick={toggleLanguage}
               className={`p-2 rounded-lg transition-colors duration-200 ${
                 scrolled
-                  ? 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
-                  : 'bg-white/20 dark:bg-gray-800/20 text-gray-800 dark:text-gray-200 hover:bg-white/30 dark:hover:bg-gray-800/30'
+                  ? 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                  : 'bg-white/20 dark:bg-slate-800/20 text-slate-800 dark:text-slate-200 hover:bg-white/30 dark:hover:bg-slate-800/30'
               }`}
               title={language === 'en' ? 'Switch to Bahasa' : 'Switch to English'}
             >
@@ -203,8 +202,8 @@ export default function Navbar() {
                 onClick={() => setShowAdminLogin(true)}
                 className={`p-2 rounded-lg transition-colors duration-200 ${
                   scrolled
-                    ? 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
-                    : 'bg-white/20 dark:bg-gray-800/20 text-gray-800 dark:text-gray-200 hover:bg-white/30 dark:hover:bg-gray-800/30'
+                    ? 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                    : 'bg-white/20 dark:bg-slate-800/20 text-slate-800 dark:text-slate-200 hover:bg-white/30 dark:hover:bg-slate-800/30'
                 }`}
                 title={t('adminLogin')}
               >
@@ -219,8 +218,8 @@ export default function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               className={`p-2 rounded-lg transition-colors duration-200 ${
                 scrolled
-                  ? 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
-                  : 'bg-white/20 dark:bg-gray-800/20 text-gray-800 dark:text-gray-200 hover:bg-white/30 dark:hover:bg-gray-800/30'
+                  ? 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                  : 'bg-white/20 dark:bg-slate-800/20 text-slate-800 dark:text-slate-200 hover:bg-white/30 dark:hover:bg-slate-800/30'
               }`}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -236,7 +235,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700"
+            className="md:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg border-b border-slate-200 dark:border-slate-700"
           >
             <div className="px-4 py-6 space-y-4">
               {navItems.map((item) => (
@@ -245,7 +244,7 @@ export default function Navbar() {
                   whileHover={{ scale: 1.02, x: 10 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-all duration-200"
+                  className="block w-full text-left px-4 py-2 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-all duration-200"
                 >
                   {item.name}
                 </motion.button>

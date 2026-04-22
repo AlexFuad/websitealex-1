@@ -116,7 +116,7 @@ export default function Portfolio() {
   }
 
   return (
-    <section id="portfolio" className="py-20 bg-white">
+    <section id="portfolio" className="py-20 bg-white dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
@@ -125,10 +125,10 @@ export default function Portfolio() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <motion.h2 variants={itemVariants} className="text-4xl font-bold text-gray-900 mb-4">
+          <motion.h2 variants={itemVariants} className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">
             Portfolio
           </motion.h2>
-          <motion.p variants={itemVariants} className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <motion.p variants={itemVariants} className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Explore my recent projects and see how I turn ideas into reality through
             clean code and thoughtful design.
           </motion.p>
@@ -154,7 +154,7 @@ export default function Portfolio() {
                   className={`px-4 py-2 rounded-full font-medium transition-all duration-200 ${
                     activeFilter === category.id
                       ? 'bg-blue-600 text-white shadow-lg'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
                   }`}
                 >
                   {category.name}
@@ -164,13 +164,13 @@ export default function Portfolio() {
 
             {/* Search Bar */}
             <div className="relative w-full lg:w-80">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 dark:text-slate-500 w-5 h-5" />
               <input
                 type="text"
                 placeholder="Search projects..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-800 dark:text-slate-200"
               />
             </div>
           </div>
@@ -193,7 +193,7 @@ export default function Portfolio() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 whileHover={{ y: -10 }}
-                className="group relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                className="group relative bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
               >
                 {/* Featured Badge */}
                 {project.featured && (
@@ -205,10 +205,10 @@ export default function Portfolio() {
                 )}
 
                 {/* Project Image */}
-                <div className="relative h-48 bg-gradient-to-br from-blue-100 to-purple-100 overflow-hidden">
+                <div className="relative h-48 bg-gradient-to-br from-blue-100 dark:from-blue-900/20 to-purple-100 dark:to-purple-900/20 overflow-hidden">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-16 h-16 bg-white rounded-lg shadow-lg flex items-center justify-center">
-                      <span className="text-2xl font-bold text-gray-800">PJ</span>
+                      <span className="text-2xl font-bold text-slate-800 dark:text-slate-200">PJ</span>
                     </div>
                   </div>
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
@@ -216,10 +216,10 @@ export default function Portfolio() {
 
                 {/* Project Content */}
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                  <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-3">
                     {project.description}
                   </p>
                   
@@ -228,13 +228,13 @@ export default function Portfolio() {
                     {project.technologies.slice(0, 3).map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full"
+                        className="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full"
                       >
                         {tech}
                       </span>
                     ))}
                     {project.technologies.length > 3 && (
-                      <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
+                      <span className="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full">
                         +{project.technologies.length - 3}
                       </span>
                     )}
@@ -248,7 +248,7 @@ export default function Portfolio() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors duration-200"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-slate-900 dark:bg-slate-700 text-white rounded-lg hover:bg-slate-800 dark:hover:bg-slate-600 transition-colors duration-200"
                     >
                       <Github className="w-4 h-4" />
                       <span className="text-sm font-medium">Code</span>
@@ -261,7 +261,7 @@ export default function Portfolio() {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                        className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 dark:bg-blue-700 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-800 transition-colors duration-200"
                       >
                         <ExternalLink className="w-4 h-4" />
                         <span className="text-sm font-medium">Live</span>
@@ -281,7 +281,7 @@ export default function Portfolio() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center py-12"
           >
-            <p className="text-gray-500 text-lg">
+            <p className="text-slate-500 dark:text-slate-400 text-lg">
               No projects found matching your criteria.
             </p>
           </motion.div>

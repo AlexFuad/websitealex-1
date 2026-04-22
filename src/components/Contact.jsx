@@ -95,7 +95,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+    <section id="contact" className="py-20 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-slate-900 dark:to-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
@@ -104,10 +104,10 @@ export default function Contact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <motion.h2 variants={itemVariants} className="text-4xl font-bold text-gray-900 mb-4">
+          <motion.h2 variants={itemVariants} className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">
             Get In Touch
           </motion.h2>
-          <motion.p variants={itemVariants} className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <motion.p variants={itemVariants} className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             I'm always interested in hearing about new projects and opportunities.
             Whether you have a question or just want to say hi, feel free to reach out!
           </motion.p>
@@ -129,7 +129,7 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <motion.div variants={itemVariants}>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                       Name *
                     </label>
                     <input
@@ -145,7 +145,7 @@ export default function Contact() {
                   </motion.div>
 
                   <motion.div variants={itemVariants}>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                       Email *
                     </label>
                     <input
@@ -162,7 +162,7 @@ export default function Contact() {
                 </div>
 
                 <motion.div variants={itemVariants}>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                     Subject *
                   </label>
                   <input
@@ -178,7 +178,7 @@ export default function Contact() {
                 </motion.div>
 
                 <motion.div variants={itemVariants}>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                     Message *
                   </label>
                   <textarea
@@ -188,7 +188,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 resize-none"
+                    className="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 resize-none dark:bg-slate-700 dark:text-slate-200"
                     placeholder="Tell me about your project..."
                   />
                 </motion.div>
@@ -222,8 +222,8 @@ export default function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                     className={`p-4 rounded-lg ${
                       submitStatus === 'success'
-                        ? 'bg-green-100 text-green-700'
-                        : 'bg-red-100 text-red-700'
+                        ? 'bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-300'
+                        : 'bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-300'
                     }`}
                   >
                     {submitStatus === 'success'
@@ -257,14 +257,14 @@ export default function Contact() {
                       key={info.label}
                       href={info.href}
                       whileHover={{ scale: 1.02, x: 5 }}
-                      className="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                      className="flex items-center space-x-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors duration-200"
                     >
-                      <div className="p-3 bg-blue-100 rounded-lg">
-                        <Icon className="w-6 h-6 text-blue-600" />
+                      <div className="p-3 bg-blue-100 dark:bg-blue-900/20 rounded-lg">
+                        <Icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-gray-500">{info.label}</p>
-                        <p className="text-gray-900">{info.value}</p>
+                        <p className="text-sm font-medium text-slate-500 dark:text-slate-400">{info.label}</p>
+                        <p className="text-slate-900 dark:text-slate-100">{info.value}</p>
                       </div>
                     </motion.a>
                   )
@@ -289,10 +289,10 @@ export default function Contact() {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.1, y: -5 }}
                       whileTap={{ scale: 0.9 }}
-                      className="p-3 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+                      className="p-3 bg-slate-100 dark:bg-slate-700 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors duration-200"
                       aria-label={social.label}
                     >
-                      <Icon className="w-6 h-6 text-gray-700" />
+                      <Icon className="w-6 h-6 text-slate-700 dark:text-slate-300" />
                     </motion.a>
                   )
                 })}
@@ -300,7 +300,7 @@ export default function Contact() {
             </motion.div>
 
             {/* Availability */}
-            <motion.div variants={itemVariants} className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl shadow-xl p-8 text-white">
+            <motion.div variants={itemVariants} className="bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-600 dark:to-purple-700 rounded-2xl shadow-xl p-8 text-white">
               <h3 className="text-2xl font-semibold mb-4">
                 Available for Work
               </h3>
@@ -312,7 +312,7 @@ export default function Contact() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
-                className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-200"
+                className="px-6 py-3 bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 font-semibold rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors duration-200"
               >
                 Start a Conversation
               </motion.button>

@@ -2,12 +2,19 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Moon, Sun } from 'lucide-react'
+import { Menu, X, Moon, Sun, Globe, Shield, LogOut } from 'lucide-react'
+import { useTheme } from '@/contexts/ThemeContext'
+import { useLanguage } from '@/contexts/LanguageContext'
+import AdminLogin from './AdminLogin'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [isDark, setIsDark] = useState(false)
+  const [showAdminLogin, setShowAdminLogin] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false)
+  
+  const { theme, toggleTheme } = useTheme()
+  const { language, toggleLanguage, t } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,12 +26,22 @@ export default function Navbar() {
   }, [])
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Contact', href: '#contact' },
+    { name: t('home'), href: '#home' },
+    { name: t('about'), href: '#about' },
+    { name: t('skills'), href: '#skills' },
+    { name: t('portfolio'), href: '#portfolio' },
+    { name: t('blog'), href: '/blog' },
+    { name: t('contact'), href: '#contact' },
   ]
+
+  const handleAdminLogin = () => {
+    setIsAdmin(true)
+    setShowAdminLogin(false)
+  }
+
+  const handleAdminLogout = () => {
+    setIsAdmin(false)
+  }
 
   const scrollToSection = (href) => {
     const element = document.querySelector(href)
@@ -35,15 +52,16 @@ export default function Navbar() {
   }
 
   return (
-    <motion.nav
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/80 backdrop-blur-lg border-b border-gray-200 shadow-lg'
-          : 'bg-transparent'
-      }`}
-    >
+    <>
+      <motion.nav
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700 shadow-lg'
+            : 'bg-transparent'
+        }`}
+      >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -55,11 +73,11 @@ export default function Navbar() {
             <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">A</span>
             </div>
-            <span className="font-bold text-xl text-gray-800">Alex Fuad</span>
+            <span className="font-bold text-xl text-gray-800 dark:text-gray-200">Alex Fuad</span>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <motion.button
                 key={item.name}
@@ -68,8 +86,8 @@ export default function Navbar() {
                 onClick={() => scrollToSection(item.href)}
                 className={`text-sm font-medium transition-colors duration-200 ${
                   scrolled
-                    ? 'text-gray-700 hover:text-blue-600'
-                    : 'text-gray-800 hover:text-blue-600'
+                    ? 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                    : 'text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400'
                 }`}
               >
                 {item.name}
@@ -80,30 +98,134 @@ export default function Navbar() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => setIsDark(!isDark)}
+              onClick={toggleTheme}
               className={`p-2 rounded-lg transition-colors duration-200 ${
                 scrolled
-                  ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  : 'bg-white/20 text-gray-800 hover:bg-white/30'
+                  ? 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  : 'bg-white/20 dark:bg-gray-800/20 text-gray-800 dark:text-gray-200 hover:bg-white/30 dark:hover:bg-gray-800/30'
               }`}
+              title={theme === 'dark' ? t('lightMode') : t('darkMode')}
             >
-              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </motion.button>
+            
+            {/* Language Toggle */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={toggleLanguage}
+              className={`p-2 rounded-lg transition-colors duration-200 ${
+                scrolled
+                  ? 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  : 'bg-white/20 dark:bg-gray-800/20 text-gray-800 dark:text-gray-200 hover:bg-white/30 dark:hover:bg-gray-800/30'
+              }`}
+              title={language === 'en' ? 'Switch to Bahasa' : 'Switch to English'}
+            >
+              <Globe className="w-5 h-5" />
+            </motion.button>
+            
+            {/* Admin Login */}
+            {isAdmin ? (
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleAdminLogout}
+                className="flex items-center space-x-1 px-3 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors duration-200"
+                title={t('logout')}
+              >
+                <Shield className="w-4 h-4" />
+                <LogOut className="w-4 h-4" />
+              </motion.button>
+            ) : (
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setShowAdminLogin(true)}
+                className={`p-2 rounded-lg transition-colors duration-200 ${
+                  scrolled
+                    ? 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                    : 'bg-white/20 dark:bg-gray-800/20 text-gray-800 dark:text-gray-200 hover:bg-white/30 dark:hover:bg-gray-800/30'
+                }`}
+                title={t('adminLogin')}
+              >
+                <Shield className="w-5 h-5" />
+              </motion.button>
+            )}
           </div>
 
-          {/* Mobile menu button */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden p-2 rounded-lg transition-colors duration-200 ${
-              scrolled
-                ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                : 'bg-white/20 text-gray-800 hover:bg-white/30'
-            }`}
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </motion.button>
+          {/* Right side controls for mobile */}
+          <div className="flex items-center space-x-2 md:hidden">
+            {/* Theme Toggle */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={toggleTheme}
+              className={`p-2 rounded-lg transition-colors duration-200 ${
+                scrolled
+                  ? 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  : 'bg-white/20 dark:bg-gray-800/20 text-gray-800 dark:text-gray-200 hover:bg-white/30 dark:hover:bg-gray-800/30'
+              }`}
+              title={theme === 'dark' ? t('lightMode') : t('darkMode')}
+            >
+              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </motion.button>
+            
+            {/* Language Toggle */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={toggleLanguage}
+              className={`p-2 rounded-lg transition-colors duration-200 ${
+                scrolled
+                  ? 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  : 'bg-white/20 dark:bg-gray-800/20 text-gray-800 dark:text-gray-200 hover:bg-white/30 dark:hover:bg-gray-800/30'
+              }`}
+              title={language === 'en' ? 'Switch to Bahasa' : 'Switch to English'}
+            >
+              <Globe className="w-5 h-5" />
+            </motion.button>
+            
+            {/* Admin Login */}
+            {isAdmin ? (
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleAdminLogout}
+                className="p-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors duration-200"
+                title={t('logout')}
+              >
+                <LogOut className="w-5 h-5" />
+              </motion.button>
+            ) : (
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setShowAdminLogin(true)}
+                className={`p-2 rounded-lg transition-colors duration-200 ${
+                  scrolled
+                    ? 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                    : 'bg-white/20 dark:bg-gray-800/20 text-gray-800 dark:text-gray-200 hover:bg-white/30 dark:hover:bg-gray-800/30'
+                }`}
+                title={t('adminLogin')}
+              >
+                <Shield className="w-5 h-5" />
+              </motion.button>
+            )}
+            
+            {/* Mobile menu button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setIsOpen(!isOpen)}
+              className={`p-2 rounded-lg transition-colors duration-200 ${
+                scrolled
+                  ? 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  : 'bg-white/20 dark:bg-gray-800/20 text-gray-800 dark:text-gray-200 hover:bg-white/30 dark:hover:bg-gray-800/30'
+              }`}
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </motion.button>
+          </div>
         </div>
       </div>
 
@@ -114,7 +236,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/95 backdrop-blur-lg border-b border-gray-200"
+            className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700"
           >
             <div className="px-4 py-6 space-y-4">
               {navItems.map((item) => (
@@ -123,26 +245,23 @@ export default function Navbar() {
                   whileHover={{ scale: 1.02, x: 10 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
+                  className="block w-full text-left px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-all duration-200"
                 >
                   {item.name}
                 </motion.button>
               ))}
-              
-              {/* Mobile Theme Toggle */}
-              <motion.button
-                whileHover={{ scale: 1.02, x: 10 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => setIsDark(!isDark)}
-                className="flex items-center space-x-2 w-full px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
-              >
-                {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-                <span>Toggle Theme</span>
-              </motion.button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+      </motion.nav>
+      
+      {/* Admin Login Modal */}
+      <AdminLogin 
+        isOpen={showAdminLogin} 
+        onClose={() => setShowAdminLogin(false)} 
+        onLogin={handleAdminLogin}
+      />
+    </>
   )
 }

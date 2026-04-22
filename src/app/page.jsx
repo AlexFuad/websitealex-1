@@ -9,7 +9,7 @@ import WhatsAppFloating from '@/components/WhatsAppFloating'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-700 transition-colors duration-300">
       <Navbar />
       <Hero />
       <About />

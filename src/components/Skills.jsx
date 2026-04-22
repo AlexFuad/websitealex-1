@@ -14,11 +14,14 @@ import {
   Globe,
   Server
 } from 'lucide-react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Skills() {
+  const { t } = useLanguage()
+  
   const skillCategories = [
     {
-      title: 'Frontend Development',
+      title: t('frontend'),
       icon: Code,
       color: 'blue',
       skills: [
@@ -31,7 +34,7 @@ export default function Skills() {
       ],
     },
     {
-      title: 'Backend Development',
+      title: t('backend'),
       icon: Server,
       color: 'green',
       skills: [
@@ -44,7 +47,7 @@ export default function Skills() {
       ],
     },
     {
-      title: 'Tools & Technologies',
+      title: t('tools'),
       icon: Terminal,
       color: 'purple',
       skills: [
@@ -57,7 +60,7 @@ export default function Skills() {
       ],
     },
     {
-      title: 'Design & UI/UX',
+      title: t('design'),
       icon: Palette,
       color: 'pink',
       skills: [
@@ -135,11 +138,10 @@ export default function Skills() {
           className="text-center mb-16"
         >
           <motion.h2 variants={itemVariants} className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">
-            Technical Skills
+            {t('skillsTitle')}
           </motion.h2>
           <motion.p variants={itemVariants} className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            A comprehensive overview of my technical expertise and proficiency levels
-            in various technologies and tools.
+            {t('skillsDescription')}
           </motion.p>
         </motion.div>
 
@@ -213,7 +215,7 @@ export default function Skills() {
           <motion.div variants={itemVariants} className="inline-flex items-center space-x-2 px-4 py-2 bg-blue-50 dark:bg-blue-900/20 rounded-full">
             <Code className="w-5 h-5 text-blue-600 dark:text-blue-400" />
             <span className="text-sm font-medium text-blue-900 dark:text-blue-100">
-              Always learning and expanding my skill set
+              {t('alwaysLearning')}
             </span>
           </motion.div>
         </motion.div>

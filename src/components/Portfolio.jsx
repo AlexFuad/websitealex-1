@@ -3,16 +3,18 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ExternalLink, Github, Filter, Search } from 'lucide-react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Portfolio() {
+  const { t } = useLanguage()
   const [activeFilter, setActiveFilter] = useState('all')
   const [searchTerm, setSearchTerm] = useState('')
 
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      description: 'A full-featured e-commerce platform with payment integration, user authentication, and admin dashboard.',
+      title: t('ecommercePlatform'),
+      description: t('ecommerceDescription'),
       image: '/api/placeholder/600/400',
       category: 'web',
       technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
@@ -22,8 +24,8 @@ export default function Portfolio() {
     },
     {
       id: 2,
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
+      title: t('taskManagementApp'),
+      description: t('taskManagementDescription'),
       image: '/api/placeholder/600/400',
       category: 'web',
       technologies: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL'],
@@ -33,8 +35,8 @@ export default function Portfolio() {
     },
     {
       id: 3,
-      title: 'Weather Dashboard',
-      description: 'A beautiful weather dashboard with location-based forecasts, interactive maps, and detailed weather analytics.',
+      title: t('weatherDashboard'),
+      description: t('weatherDashboardDescription'),
       image: '/api/placeholder/600/400',
       category: 'web',
       technologies: ['React', 'Tailwind CSS', 'Weather API', 'Chart.js'],
@@ -44,8 +46,8 @@ export default function Portfolio() {
     },
     {
       id: 4,
-      title: 'Mobile Banking App',
-      description: 'A secure mobile banking application with biometric authentication, transaction history, and budget tracking.',
+      title: t('mobileBankingApp'),
+      description: t('mobileBankingDescription'),
       image: '/api/placeholder/600/400',
       category: 'mobile',
       technologies: ['React Native', 'Firebase', 'Redux', 'Node.js'],
@@ -55,8 +57,8 @@ export default function Portfolio() {
     },
     {
       id: 5,
-      title: 'AI Content Generator',
-      description: 'An AI-powered content generation platform with multiple templates, custom prompts, and content optimization.',
+      title: t('aiContentGenerator'),
+      description: t('aiContentDescription'),
       image: '/api/placeholder/600/400',
       category: 'web',
       technologies: ['Next.js', 'OpenAI API', 'Tailwind CSS', 'MongoDB'],
@@ -66,8 +68,8 @@ export default function Portfolio() {
     },
     {
       id: 6,
-      title: 'Social Media Analytics',
-      description: 'A comprehensive social media analytics dashboard with data visualization, sentiment analysis, and reporting features.',
+      title: t('socialMediaAnalytics'),
+      description: t('socialMediaDescription'),
       image: '/api/placeholder/600/400',
       category: 'web',
       technologies: ['React', 'D3.js', 'Express', 'PostgreSQL'],
@@ -78,10 +80,10 @@ export default function Portfolio() {
   ]
 
   const categories = [
-    { id: 'all', name: 'All Projects' },
-    { id: 'web', name: 'Web Development' },
-    { id: 'mobile', name: 'Mobile Apps' },
-    { id: 'design', name: 'UI/UX Design' },
+    { id: 'all', name: t('allProjects') },
+    { id: 'web', name: t('webDevelopment') },
+    { id: 'mobile', name: t('mobileDevelopment') },
+    { id: 'design', name: t('uiuxDesign') },
   ]
 
   const filteredProjects = projects.filter(project => {
@@ -126,11 +128,10 @@ export default function Portfolio() {
           className="text-center mb-16"
         >
           <motion.h2 variants={itemVariants} className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">
-            Portfolio
+            {t('portfolioTitle')}
           </motion.h2>
           <motion.p variants={itemVariants} className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Explore my recent projects and see how I turn ideas into reality through
-            clean code and thoughtful design.
+            {t('portfolioDescription')}
           </motion.p>
         </motion.div>
 
@@ -167,7 +168,7 @@ export default function Portfolio() {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 dark:text-slate-500 w-5 h-5" />
               <input
                 type="text"
-                placeholder="Search projects..."
+                placeholder={t('searchProjects')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-800 dark:text-slate-200"
@@ -199,7 +200,7 @@ export default function Portfolio() {
                 {project.featured && (
                   <div className="absolute top-4 right-4 z-10">
                     <span className="px-3 py-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-xs font-semibold rounded-full">
-                      Featured
+                      {t('featured')}
                     </span>
                   </div>
                 )}
@@ -282,7 +283,7 @@ export default function Portfolio() {
             className="text-center py-12"
           >
             <p className="text-slate-500 dark:text-slate-400 text-lg">
-              No projects found matching your criteria.
+              {t('noProjectsFound')}
             </p>
           </motion.div>
         )}

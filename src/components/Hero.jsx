@@ -2,8 +2,11 @@
 
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail, Download, ArrowDown } from 'lucide-react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Hero() {
+  const { t } = useLanguage()
+  
   const socialLinks = [
     { icon: Github, href: 'https://github.com/alexfuad', label: 'GitHub' },
     { icon: Linkedin, href: 'https://linkedin.com/in/alexfuad', label: 'LinkedIn' },
@@ -52,15 +55,14 @@ export default function Hero() {
       >
         <motion.div variants={itemVariants} className="mb-8">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-slate-100 mb-4">
-            Hi, I'm{' '}
+            {t('heroTitle')}
             <span className="gradient-text">Alex Fuad</span>
           </h1>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-700 dark:text-slate-300 mb-6">
-            Full Stack Developer
+            {t('heroSubtitle')}
           </h2>
           <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8">
-            Passionate about creating beautiful, functional, and user-centered digital experiences.
-            I turn ideas into reality through clean code and thoughtful design.
+            {t('heroDescription')}
           </p>
         </motion.div>
 
@@ -71,7 +73,7 @@ export default function Hero() {
             className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            Get In Touch
+            {t('heroButton2')}
           </motion.button>
           
           <motion.button
@@ -80,7 +82,7 @@ export default function Hero() {
             className="px-8 py-3 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-semibold rounded-lg shadow-lg hover:shadow-xl border border-slate-200 dark:border-slate-600 transition-all duration-300 flex items-center justify-center gap-2"
           >
             <Download className="w-5 h-5" />
-            Download CV
+            {t('heroButton1')}
           </motion.button>
         </motion.div>
 

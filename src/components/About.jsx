@@ -2,15 +2,18 @@
 
 import { motion } from 'framer-motion'
 import { Code, Database, Globe, Smartphone, Cloud, Shield } from 'lucide-react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function About() {
+  const { t } = useLanguage()
+  
   const skills = [
-    { icon: Code, name: 'Frontend Development', level: 90 },
-    { icon: Database, name: 'Backend Development', level: 85 },
-    { icon: Globe, name: 'Web Design', level: 75 },
-    { icon: Smartphone, name: 'Mobile Development', level: 70 },
-    { icon: Cloud, name: 'Cloud Services', level: 80 },
-    { icon: Shield, name: 'Security', level: 75 },
+    { icon: Code, name: t('frontend'), level: 90 },
+    { icon: Database, name: t('backend'), level: 85 },
+    { icon: Globe, name: t('design'), level: 75 },
+    { icon: Smartphone, name: t('mobileDevelopment'), level: 70 },
+    { icon: Cloud, name: t('cloudServices'), level: 80 },
+    { icon: Shield, name: t('security'), level: 75 },
   ]
 
   const experiences = [
@@ -68,11 +71,10 @@ export default function About() {
           className="text-center mb-16"
         >
           <motion.h2 variants={itemVariants} className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">
-            About Me
+            {t('aboutTitle')}
           </motion.h2>
           <motion.p variants={itemVariants} className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            I'm a passionate full stack developer with expertise in modern web technologies
-            and a love for creating exceptional user experiences.
+            {t('aboutDescription')}
           </motion.p>
         </motion.div>
 
@@ -84,38 +86,33 @@ export default function About() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <motion.h3 variants={itemVariants} className="text-2xl font-semibold text-gray-900 mb-6">
-              My Story
+            <motion.h3 variants={itemVariants} className="text-2xl font-semibold text-slate-900 dark:text-slate-100 mb-6">
+              {t('myStory')}
             </motion.h3>
             
             <motion.p variants={itemVariants} className="text-slate-600 dark:text-slate-400 mb-4">
-              Hello! I'm Alex Fuad, a full stack developer with a passion for creating beautiful,
-              functional, and user-centered digital experiences. I'm always looking for new and
-              innovative ways to bring my clients' visions to life.
+              {t('aboutStory1')}
             </motion.p>
             
             <motion.p variants={itemVariants} className="text-slate-600 dark:text-slate-400 mb-6">
-              With over 4 years of experience in web development, I've worked on a wide range
-              of projects from small business websites to large-scale enterprise applications.
-              My approach combines technical expertise with creative problem-solving to deliver
-              solutions that exceed expectations.
+              {t('aboutStory2')}
             </motion.p>
 
             <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4 mb-8">
               <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
-                <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Frontend</h4>
+                <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">{t('frontend')}</h4>
                 <p className="text-sm text-blue-700 dark:text-blue-300">React, Next.js, TypeScript, Tailwind CSS</p>
               </div>
               <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
-                <h4 className="font-semibold text-purple-900 dark:text-purple-100 mb-2">Backend</h4>
+                <h4 className="font-semibold text-purple-900 dark:text-purple-100 mb-2">{t('backend')}</h4>
                 <p className="text-sm text-purple-700 dark:text-purple-300">Node.js, Express, MongoDB, PostgreSQL</p>
               </div>
               <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
-                <h4 className="font-semibold text-green-900 dark:text-green-100 mb-2">Tools</h4>
+                <h4 className="font-semibold text-green-900 dark:text-green-100 mb-2">{t('tools')}</h4>
                 <p className="text-sm text-green-700 dark:text-green-300">Git, Docker, AWS, Vercel</p>
               </div>
               <div className="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
-                <h4 className="font-semibold text-orange-900 dark:text-orange-100 mb-2">Design</h4>
+                <h4 className="font-semibold text-orange-900 dark:text-orange-100 mb-2">{t('design')}</h4>
                 <p className="text-sm text-orange-700 dark:text-orange-300">Figma, Adobe XD, Responsive Design</p>
               </div>
             </motion.div>

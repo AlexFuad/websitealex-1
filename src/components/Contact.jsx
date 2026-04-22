@@ -3,8 +3,10 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Contact() {
+  const { t } = useLanguage()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,19 +19,19 @@ export default function Contact() {
   const contactInfo = [
     {
       icon: Mail,
-      label: 'Email',
+      label: t('email'),
       value: 'alex@example.com',
       href: 'mailto:alex@example.com',
     },
     {
       icon: Phone,
-      label: 'Phone',
+      label: t('phone'),
       value: '+1 (555) 123-4567',
       href: 'tel:+15551234567',
     },
     {
       icon: MapPin,
-      label: 'Location',
+      label: t('location'),
       value: 'San Francisco, CA',
       href: '#',
     },
@@ -122,15 +124,15 @@ export default function Contact() {
             viewport={{ once: true }}
           >
             <motion.div variants={itemVariants} className="bg-white rounded-2xl shadow-xl p-8">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-                Send me a message
+              <h3 className="text-2xl font-semibold text-slate-900 dark:text-slate-100 mb-6">
+                {t('letsConnect')}
               </h3>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <motion.div variants={itemVariants}>
                     <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                      Name *
+                      {t('name')} *
                     </label>
                     <input
                       type="text"
@@ -146,7 +148,7 @@ export default function Contact() {
 
                   <motion.div variants={itemVariants}>
                     <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                      Email *
+                      {t('email')} *
                     </label>
                     <input
                       type="email"
@@ -163,7 +165,7 @@ export default function Contact() {
 
                 <motion.div variants={itemVariants}>
                   <label htmlFor="subject" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                    Subject *
+                    {t('subject')} *
                   </label>
                   <input
                     type="text"
@@ -179,7 +181,7 @@ export default function Contact() {
 
                 <motion.div variants={itemVariants}>
                   <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                    Message *
+                    {t('message')} *
                   </label>
                   <textarea
                     id="message"
@@ -204,12 +206,12 @@ export default function Contact() {
                     {isSubmitting ? (
                       <>
                         <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                        Sending...
+                        {t('sending')}
                       </>
                     ) : (
                       <>
                         <Send className="w-5 h-5" />
-                        Send Message
+                        {t('send')}
                       </>
                     )}
                   </motion.button>
@@ -227,8 +229,8 @@ export default function Contact() {
                     }`}
                   >
                     {submitStatus === 'success'
-                      ? 'Thank you for your message! I\'ll get back to you soon.'
-                      : 'Something went wrong. Please try again.'}
+                      ? t('messageSuccess')
+                      : t('messageError')}
                   </motion.div>
                 )}
               </form>
@@ -245,8 +247,8 @@ export default function Contact() {
           >
             {/* Contact Info */}
             <motion.div variants={itemVariants} className="bg-white rounded-2xl shadow-xl p-8">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-                Contact Information
+              <h3 className="text-2xl font-semibold text-slate-900 dark:text-slate-100 mb-6">
+                {t('contactInfo')}
               </h3>
               
               <div className="space-y-6">
@@ -274,8 +276,8 @@ export default function Contact() {
 
             {/* Social Links */}
             <motion.div variants={itemVariants} className="bg-white rounded-2xl shadow-xl p-8">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-                Connect With Me
+              <h3 className="text-2xl font-semibold text-slate-900 dark:text-slate-100 mb-6">
+                {t('connectWithMe')}
               </h3>
               
               <div className="flex space-x-4">
@@ -302,11 +304,10 @@ export default function Contact() {
             {/* Availability */}
             <motion.div variants={itemVariants} className="bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-600 dark:to-purple-700 rounded-2xl shadow-xl p-8 text-white">
               <h3 className="text-2xl font-semibold mb-4">
-                Available for Work
+                {t('availableForWork')}
               </h3>
               <p className="mb-6">
-                I'm currently available for freelance work and full-time opportunities.
-                If you're interested in working together, let's talk!
+                {t('availableDescription')}
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -314,7 +315,7 @@ export default function Contact() {
                 onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
                 className="px-6 py-3 bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 font-semibold rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors duration-200"
               >
-                Start a Conversation
+                {t('startConversation')}
               </motion.button>
             </motion.div>
           </motion.div>

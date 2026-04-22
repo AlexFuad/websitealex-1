@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail, ArrowUp, Heart } from 'lucide-react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Footer() {
+  const { t } = useLanguage()
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
@@ -14,31 +16,31 @@ export default function Footer() {
 
   const footerLinks = [
     {
-      title: 'Quick Links',
+      title: t('quickLinks'),
       links: [
-        { name: 'Home', href: '#home' },
-        { name: 'About', href: '#about' },
-        { name: 'Skills', href: '#skills' },
-        { name: 'Portfolio', href: '#portfolio' },
-        { name: 'Contact', href: '#contact' },
+        { name: t('home'), href: '#home' },
+        { name: t('about'), href: '#about' },
+        { name: t('skills'), href: '#skills' },
+        { name: t('portfolio'), href: '#portfolio' },
+        { name: t('contact'), href: '#contact' },
       ],
     },
     {
-      title: 'Services',
+      title: t('services'),
       links: [
-        { name: 'Web Development', href: '#' },
-        { name: 'Mobile Development', href: '#' },
-        { name: 'UI/UX Design', href: '#' },
-        { name: 'Consulting', href: '#' },
+        { name: t('webDevelopment'), href: '#' },
+        { name: t('mobileDevelopment'), href: '#' },
+        { name: t('uiuxDesign'), href: '#' },
+        { name: t('consulting'), href: '#' },
       ],
     },
     {
-      title: 'Resources',
+      title: t('resources'),
       links: [
-        { name: 'Blog', href: '#' },
-        { name: 'Resume', href: '#' },
-        { name: 'Privacy Policy', href: '#' },
-        { name: 'Terms of Service', href: '#' },
+        { name: t('blog'), href: '#' },
+        { name: t('resume'), href: '#' },
+        { name: t('privacyPolicy'), href: '#' },
+        { name: t('termsOfService'), href: '#' },
       ],
     },
   ]
@@ -145,14 +147,14 @@ export default function Footer() {
           className="mt-12 pt-8 border-t border-slate-800 dark:border-slate-700"
         >
           <motion.div variants={itemVariants} className="text-center">
-            <h3 className="text-2xl font-semibold mb-4">Stay Updated</h3>
+            <h3 className="text-2xl font-semibold mb-4">{t('stayUpdated')}</h3>
             <p className="text-slate-300 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
-              Subscribe to my newsletter to get updates on my latest projects, articles, and tech insights.
+              {t('newsletterDescription')}
             </p>
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t('enterEmail')}
                 className="flex-1 px-4 py-3 bg-slate-800 dark:bg-slate-700 border border-slate-700 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-slate-400 dark:placeholder-slate-500"
               />
               <motion.button
@@ -160,7 +162,7 @@ export default function Footer() {
                 whileTap={{ scale: 0.95 }}
                 className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg transition-shadow duration-300"
               >
-                Subscribe
+                {t('subscribe')}
               </motion.button>
             </motion.div>
           </motion.div>
@@ -177,9 +179,9 @@ export default function Footer() {
               viewport={{ once: true }}
               className="flex items-center space-x-2 text-slate-400 dark:text-slate-500 text-sm"
             >
-              <span>© {currentYear} Alex Fuad. All rights reserved.</span>
+              <span>{t('footerText')}</span>
               <Heart className="w-4 h-4 text-red-500" />
-              <span>Made with passion</span>
+              <span>{t('madeWithPassion')}</span>
             </motion.div>
 
             <motion.div
@@ -189,13 +191,13 @@ export default function Footer() {
               className="flex items-center space-x-6 text-sm text-slate-400 dark:text-slate-500"
             >
               <a href="#" className="hover:text-white transition-colors duration-200">
-                Privacy Policy
+                {t('privacyPolicy')}
               </a>
               <a href="#" className="hover:text-white transition-colors duration-200">
-                Terms of Service
+                {t('termsOfService')}
               </a>
               <a href="#" className="hover:text-white transition-colors duration-200">
-                Cookie Policy
+                {t('cookiePolicy')}
               </a>
             </motion.div>
           </div>

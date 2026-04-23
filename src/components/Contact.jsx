@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Contact() {
@@ -20,27 +20,27 @@ export default function Contact() {
     {
       icon: Mail,
       label: t('email'),
-      value: 'alex@example.com',
-      href: 'mailto:alex@example.com',
+      value: 'info@alexanderhfuadf.web.id',
+      href: 'mailto:info@alexanderhfuadf.web.id',
     },
     {
       icon: Phone,
       label: t('phone'),
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
+      value: '+62 882-9143-7432',
+      href: 'tel:+6288291437432',
     },
     {
       icon: MapPin,
       label: t('location'),
-      value: 'San Francisco, CA',
+      value: 'Indonesia',
       href: '#',
     },
   ]
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com/alexfuad', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com/in/alexfuad', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://twitter.com/alexfuad', label: 'Twitter' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/alexander-hilarius-fuad-fatahillah-9b1aa031/', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://instagram.com/alexanderhff', label: 'Instagram' },
   ]
 
   const handleChange = (e) => {

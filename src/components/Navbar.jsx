@@ -1,29 +1,48 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Moon, Sun, Globe, Shield, LogOut } from 'lucide-react'
 import { useTheme } from '@/contexts/ThemeContext'
 import { useLanguage } from '@/contexts/LanguageContext'
-import AdminLogin from './AdminLogin'
 
 export default function Navbar() {
+  const [isAdmin, setIsAdmin] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [showAdminLogin, setShowAdminLogin] = useState(false)
-  const [isAdmin, setIsAdmin] = useState(false)
+  const router = useRouter()
   
   const { theme, toggleTheme } = useTheme()
   const { language, toggleLanguage, t } = useLanguage()
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
+    if (typeof window !== 'undefined') {
+      const handleScroll = () => {
+        setScrolled(window.scrollY > 50)
+      }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+      window.addEventListener('scroll', handleScroll)
+      return () => window.removeEventListener('scroll', handleScroll)
+    }
   }, [])
+
+  // Check if user is authenticated on mount
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      checkAuthStatus()
+    }
+  }, [])
+
+  const checkAuthStatus = async () => {
+    try {
+      const response = await fetch('/api/auth/status')
+      const data = await response.json()
+      setIsAdmin(data.success && data.user?.role === 'admin')
+    } catch (error) {
+      setIsAdmin(false)
+    }
+  }
 
   const navItems = [
     { name: t('home'), href: '#home' },
@@ -35,12 +54,17 @@ export default function Navbar() {
   ]
 
   const handleAdminLogin = () => {
-    setIsAdmin(true)
-    setShowAdminLogin(false)
+    router.push('/admin/login')
   }
 
-  const handleAdminLogout = () => {
-    setIsAdmin(false)
+  const handleAdminLogout = async () => {
+    try {
+      await fetch('/api/auth/logout', { method: 'POST' })
+      setIsAdmin(false)
+      router.push('/')
+    } catch (error) {
+      console.error('Logout error:', error)
+    }
   }
 
   const scrollToSection = (href) => {
@@ -133,13 +157,13 @@ export default function Navbar() {
                 className="p-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors duration-200"
                 title={t('logout')}
               >
-                <Shield className="w-5 h-5" />
+                <LogOut className="w-5 h-5" />
               </motion.button>
             ) : (
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => setShowAdminLogin(true)}
+                onClick={handleAdminLogin}
                 className={`p-2 rounded-lg transition-colors duration-200 ${
                   scrolled
                     ? 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
@@ -199,7 +223,7 @@ export default function Navbar() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => setShowAdminLogin(true)}
+                onClick={handleAdminLogin}
                 className={`p-2 rounded-lg transition-colors duration-200 ${
                   scrolled
                     ? 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
@@ -254,13 +278,6 @@ export default function Navbar() {
         )}
       </AnimatePresence>
       </motion.nav>
-      
-      {/* Admin Login Modal */}
-      <AdminLogin 
-        isOpen={showAdminLogin} 
-        onClose={() => setShowAdminLogin(false)} 
-        onLogin={handleAdminLogin}
-      />
     </>
   )
 }

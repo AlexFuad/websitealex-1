@@ -13,7 +13,7 @@ const translations = {
     contact: 'Contact',
     
     // Hero Section
-    heroTitle: 'Hi, I\'m Alexander',
+    heroTitle: 'Hi, I\'m Alex',
     heroSubtitle: 'Full Stack Developer',
     heroDescription: 'Passionate about creating amazing web experiences with modern technologies',
     heroButton1: 'View Portfolio',
@@ -132,7 +132,7 @@ const translations = {
     noBlogPostsFound: 'No blog posts found matching your criteria.',
     
     // Footer
-    footerText: '© 2024 Alexander Hilarius Fuad Fatahillah. All rights reserved.',
+    footerText: '© 2024 Alex Fuad. All rights reserved.',
     quickLinks: 'Quick Links',
     services: 'Services',
     resources: 'Resources',
@@ -169,7 +169,7 @@ const translations = {
     contact: 'Kontak',
     
     // Hero Section
-    heroTitle: 'Hai, Saya Alexander',
+    heroTitle: 'Hai, Saya Alex',
     heroSubtitle: 'Full Stack Developer',
     heroDescription: 'Berpengalaman dalam menciptakan pengalaman web yang luar biasa dengan teknologi modern',
     heroButton1: 'Lihat Portfolio',
@@ -246,7 +246,7 @@ const translations = {
     noBlogPostsFound: 'Tidak ada postingan blog yang cocok dengan kriteria Anda.',
     
     // Footer
-    footerText: '© 2024 Alexander Hilarius Fuad Fatahillah. Semua hak dilindungi.',
+    footerText: '© 2024 Alex Fuad. Semua hak dilindungi.',
     quickLinks: 'Tautan Cepat',
     services: 'Layanan',
     resources: 'Sumber Daya',

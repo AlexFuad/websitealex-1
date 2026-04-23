@@ -27,6 +27,7 @@ export default function RootLayout({ children }) {
             {children}
           </LanguageProvider>
         </ThemeProvider>
+        <script src="/script.js" async />
       </body>
     </html>
   )

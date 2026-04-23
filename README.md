@@ -136,9 +136,10 @@ This project is licensed under the MIT License.
 
 ## Contact
 
-- **Email**: alex@example.com
+- **Email**: info@alexanderhfuadf.web.id
 - **GitHub**: https://github.com/alexfuad
-- **LinkedIn**: https://linkedin.com/in/alexfuad
+- **LinkedIn**: https://www.linkedin.com/in/alexander-hilarius-fuad-fatahillah-9b1aa031/
+- **Instagram**: https://instagram.com/alexanderhff
 
 ---
 

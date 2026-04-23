@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, Download, ArrowDown } from 'lucide-react'
+import { Github, Linkedin, Mail, Download, ArrowDown, Instagram } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Hero() {
@@ -9,8 +9,9 @@ export default function Hero() {
   
   const socialLinks = [
     { icon: Github, href: 'https://github.com/alexfuad', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com/in/alexfuad', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:alex@example.com', label: 'Email' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/alexander-hilarius-fuad-fatahillah-9b1aa031/', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://instagram.com/alexanderhff', label: 'Instagram' },
+    { icon: Mail, href: 'mailto:info@alexanderhfuadf.web.id', label: 'Email' },
   ]
 
   const containerVariants = {

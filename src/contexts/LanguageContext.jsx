@@ -13,7 +13,7 @@ const translations = {
     contact: 'Contact',
     
     // Hero Section
-    heroTitle: 'Hi, I\'m Alex',
+    heroTitle: 'Hi, I\'m',
     heroSubtitle: 'Full Stack Developer',
     heroDescription: 'Passionate about creating amazing web experiences with modern technologies',
     heroButton1: 'View Portfolio',
@@ -169,7 +169,7 @@ const translations = {
     contact: 'Kontak',
     
     // Hero Section
-    heroTitle: 'Hai, Saya Alex',
+    heroTitle: 'Hai, Saya',
     heroSubtitle: 'Full Stack Developer',
     heroDescription: 'Berpengalaman dalam menciptakan pengalaman web yang luar biasa dengan teknologi modern',
     heroButton1: 'Lihat Portfolio',

@@ -173,7 +173,7 @@ export default function AdminLogin() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-20" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
@@ -189,24 +189,24 @@ export default function AdminLogin() {
         {/* Login Card */}
         <motion.div
           variants={itemVariants}
-          className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/20 overflow-hidden"
+          className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl border border-white/20 overflow-hidden"
         >
           {/* Header */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 sm:p-8 md:p-10 lg:p-12 text-center">
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-8 sm:p-10 md:p-12 lg:p-14 xl:p-16 text-center">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-              className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4"
+              className="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 lg:w-24 lg:h-24 xl:w-28 xl:h-28 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-5"
             >
-              <Shield className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-white" />
+              <Shield className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 xl:w-14 xl:h-14 text-white" />
             </motion.div>
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2">Admin Login</h1>
-            <p className="text-blue-100 text-xs sm:text-sm md:text-base lg:text-lg">Secure access to admin dashboard</p>
+            <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-3">Admin Login</h1>
+            <p className="text-blue-100 text-sm sm:text-sm md:text-base lg:text-lg xl:text-xl">Secure access to admin dashboard</p>
           </div>
 
           {/* Form */}
-          <div className="p-5 sm:p-6 md:p-8 lg:p-10 xl:p-12">
+          <div className="p-6 sm:p-8 md:p-10 lg:p-12 xl:p-14">
             {/* Success Message */}
             {success && (
               <motion.div
@@ -231,10 +231,10 @@ export default function AdminLogin() {
               </motion.div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6 md:space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-7 md:space-y-8 lg:space-y-9 xl:space-y-10">
               {/* Username Field */}
               <motion.div variants={itemVariants}>
-                <label htmlFor="username" className="block text-sm sm:text-base md:text-lg font-medium text-slate-300 mb-2 sm:mb-3">
+                <label htmlFor="username" className="block text-sm sm:text-base md:text-lg lg:text-xl font-medium text-slate-300 mb-3 sm:mb-4">
                   Username
                 </label>
                 <div className={`relative transition-all duration-300 ${usernameFocused ? 'transform scale-105' : ''}`}>
@@ -246,7 +246,7 @@ export default function AdminLogin() {
                     onChange={handleChange}
                     onFocus={() => setUsernameFocused(true)}
                     onBlur={() => setUsernameFocused(false)}
-                    className={`w-full px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 lg:px-6 lg:py-4 bg-white/10 border rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 transition-all duration-200 ${
+                    className={`w-full px-4 py-3 sm:px-5 sm:py-3.5 md:px-6 md:py-4 lg:px-7 lg:py-4.5 xl:px-8 xl:py-5 bg-white/10 border rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 transition-all duration-200 ${
                       usernameFocused 
                         ? 'border-blue-500 focus:ring-blue-500' 
                         : 'border-white/20 focus:ring-blue-500'
@@ -259,9 +259,9 @@ export default function AdminLogin() {
                     <motion.div
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      className="absolute right-3 sm:right-4 md:right-5 top-1/2 transform -translate-y-1/2"
+                      className="absolute right-4 sm:right-5 md:right-6 lg:right-7 top-1/2 transform -translate-y-1/2"
                     >
-                      <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-green-400" />
+                      <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-green-400" />
                     </motion.div>
                   )}
                 </div>
@@ -269,7 +269,7 @@ export default function AdminLogin() {
 
               {/* Password Field */}
               <motion.div variants={itemVariants}>
-                <label htmlFor="password" className="block text-sm sm:text-base md:text-lg font-medium text-slate-300 mb-2 sm:mb-3">
+                <label htmlFor="password" className="block text-sm sm:text-base md:text-lg lg:text-xl font-medium text-slate-300 mb-3 sm:mb-4">
                   Password
                 </label>
                 <div className={`relative transition-all duration-300 ${passwordFocused ? 'transform scale-105' : ''}`}>
@@ -281,7 +281,7 @@ export default function AdminLogin() {
                     onChange={handleChange}
                     onFocus={() => setPasswordFocused(true)}
                     onBlur={() => setPasswordFocused(false)}
-                    className={`w-full px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-4 lg:px-6 lg:py-4 bg-white/10 border rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 transition-all duration-200 pr-10 sm:pr-12 md:pr-14 ${
+                    className={`w-full px-4 py-3 sm:px-5 sm:py-3.5 md:px-6 md:py-4 lg:px-7 lg:py-4.5 xl:px-8 xl:py-5 bg-white/10 border rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 transition-all duration-200 pr-12 sm:pr-14 md:pr-16 lg:pr-18 ${
                       passwordFocused 
                         ? 'border-blue-500 focus:ring-blue-500' 
                         : 'border-white/20 focus:ring-blue-500'
@@ -293,13 +293,13 @@ export default function AdminLogin() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 sm:right-4 md:right-5 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-white transition-colors duration-200"
+                    className="absolute right-4 sm:right-5 md:right-6 lg:right-7 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-white transition-colors duration-200"
                     disabled={isLoading}
                   >
                     {showPassword ? (
-                      <EyeOff className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+                      <EyeOff className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
                     ) : (
-                      <Eye className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+                      <Eye className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
                     )}
                   </button>
                 </div>
@@ -310,26 +310,26 @@ export default function AdminLogin() {
                 <button
                   type="submit"
                   disabled={isLoading || !isRecaptchaReady}
-                  className="w-full py-2.5 sm:py-3 md:py-4 lg:py-4.5 px-4 sm:px-5 md:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold sm:text-base md:text-lg lg:text-xl rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 sm:space-x-3 relative overflow-hidden"
+                  className="w-full py-3 sm:py-3.5 md:py-4 lg:py-4.5 xl:py-5 px-5 sm:px-6 md:px-7 lg:px-8 xl:px-10 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold sm:text-base md:text-lg lg:text-xl xl:text-2xl rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-3 sm:space-x-4 relative overflow-hidden"
                 >
                   {isLoading ? (
                     <>
                       {isRecaptchaLoading ? (
                         <>
-                          <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 animate-spin" />
-                          <span className="text-xs sm:text-sm md:text-base lg:text-lg">Verifying security...</span>
+                          <Loader2 className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 animate-spin" />
+                          <span className="text-sm sm:text-sm md:text-base lg:text-lg xl:text-xl">Verifying security...</span>
                         </>
                       ) : (
                         <>
-                          <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 animate-spin" />
-                          <span className="text-xs sm:text-sm md:text-base lg:text-lg">Authenticating...</span>
+                          <Loader2 className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 animate-spin" />
+                          <span className="text-sm sm:text-sm md:text-base lg:text-lg xl:text-xl">Authenticating...</span>
                         </>
                       )}
                     </>
                   ) : (
                     <>
-                      <Shield className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
-                      <span className="text-xs sm:text-sm md:text-base lg:text-lg">{!isRecaptchaReady ? 'Loading security...' : 'Sign In'}</span>
+                      <Shield className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9" />
+                      <span className="text-sm sm:text-sm md:text-base lg:text-lg xl:text-xl">{!isRecaptchaReady ? 'Loading security...' : 'Sign In'}</span>
                     </>
                   )}
                 </button>
@@ -339,28 +339,28 @@ export default function AdminLogin() {
             {/* Security Notice */}
             <motion.div
               variants={itemVariants}
-              className="mt-5 sm:mt-6 md:mt-8 p-3 sm:p-4 md:p-5 bg-blue-500/10 border border-blue-500/20 rounded-lg"
+              className="mt-6 sm:mt-7 md:mt-8 lg:mt-9 xl:mt-10 p-4 sm:p-5 md:p-6 lg:p-7 bg-blue-500/10 border border-blue-500/20 rounded-xl"
             >
-              <div className="flex items-start space-x-2 sm:space-x-3 md:space-x-4">
-                <Shield className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-blue-400 flex-shrink-0 mt-0.5" />
+              <div className="flex items-start space-x-3 sm:space-x-4 md:space-x-5">
+                <Shield className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-blue-400 flex-shrink-0 mt-0.5" />
                 <div className="flex-1">
-                  <div className="flex items-center justify-between mb-1">
-                    <p className="font-medium text-blue-300 text-xs sm:text-sm md:text-base">Protected by Google reCAPTCHA</p>
-                    <div className="flex items-center space-x-1">
+                  <div className="flex items-center justify-between mb-2">
+                    <p className="font-medium text-blue-300 text-sm sm:text-base md:text-lg">Protected by Google reCAPTCHA</p>
+                    <div className="flex items-center space-x-2">
                       {isRecaptchaReady ? (
                         <>
-                          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 bg-green-400 rounded-full animate-pulse"></div>
-                          <span className="text-green-400 text-[10px] sm:text-xs md:text-sm">Active</span>
+                          <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 bg-green-400 rounded-full animate-pulse"></div>
+                          <span className="text-green-400 text-xs sm:text-sm md:text-base">Active</span>
                         </>
                       ) : (
                         <>
-                          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 bg-yellow-400 rounded-full animate-pulse"></div>
-                          <span className="text-yellow-400 text-[10px] sm:text-xs md:text-sm">Loading...</span>
+                          <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 bg-yellow-400 rounded-full animate-pulse"></div>
+                          <span className="text-yellow-400 text-xs sm:text-sm md:text-base">Loading...</span>
                         </>
                       )}
                     </div>
                   </div>
-                  <p className="text-blue-300/70 text-[10px] sm:text-xs md:text-sm">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
+                  <p className="text-blue-300/70 text-xs sm:text-sm md:text-base">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
                 </div>
               </div>
             </motion.div>
@@ -370,9 +370,9 @@ export default function AdminLogin() {
         {/* Footer */}
         <motion.div
           variants={itemVariants}
-          className="text-center mt-6 sm:mt-8 md:mt-10"
+          className="text-center mt-8 sm:mt-10 md:mt-12 lg:mt-14 xl:mt-16"
         >
-          <p className="text-slate-400 text-xs sm:text-sm md:text-base">
+          <p className="text-slate-400 text-xs sm:text-sm md:text-base lg:text-lg">
             © 2024 Alex Fuad Portfolio. All rights reserved.
           </p>
         </motion.div>

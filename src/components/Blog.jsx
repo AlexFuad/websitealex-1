@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Calendar, Clock, User, Search, Filter, ArrowRight } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
@@ -9,6 +9,11 @@ export default function Blog() {
   const { t } = useLanguage()
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const blogPosts = [
     {
@@ -200,7 +205,7 @@ export default function Blog() {
                   <div className="flex items-center space-x-4">
                     <div className="flex items-center space-x-1">
                       <Calendar className="w-4 h-4" />
-                      <span>{new Date(post.date).toLocaleDateString()}</span>
+                      <span>{mounted ? new Date(post.date).toLocaleDateString('en-US') : post.date}</span>
                     </div>
                     <div className="flex items-center space-x-1">
                       <Clock className="w-4 h-4" />

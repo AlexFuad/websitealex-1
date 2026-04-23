@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Search, Filter, Calendar, Clock, User, ArrowLeft, ChevronRight, Tag } from 'lucide-react'
 import Link from 'next/link'
@@ -8,6 +8,11 @@ import Link from 'next/link'
 export default function BlogClient() {
   const [activeFilter, setActiveFilter] = useState('all')
   const [searchTerm, setSearchTerm] = useState('')
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const blogPosts = [
     {
@@ -332,7 +337,7 @@ export default function BlogClient() {
                       </div>
                       <div className="flex items-center space-x-1">
                         <Calendar className="w-4 h-4" />
-                        <span>{formatDate(post.date)}</span>
+                        <span>{mounted ? formatDate(post.date) : post.date}</span>
                       </div>
                     </div>
                     <div className="flex items-center space-x-1">
